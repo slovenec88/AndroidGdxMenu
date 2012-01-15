@@ -1,4 +1,4 @@
-package edu.gricar.AndroidGdxMenu;
+package edu.gricar.RVMenu;
 
 import java.util.Date;
 import com.badlogic.gdx.ApplicationListener;
@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.PerspectiveCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.VertexAttribute;
 import com.badlogic.gdx.graphics.VertexAttributes.Usage;
+import com.badlogic.gdx.math.Vector3;
 
 public class AndroidGdxMenuActivity implements ApplicationListener {
 	private Mesh[] faces;
@@ -18,6 +19,7 @@ public class AndroidGdxMenuActivity implements ApplicationListener {
     ActionResolver actionResolver;
     private Texture texture;
 	private float transX = 0.0f, transY = 0.0f, transZ = 0.0f;
+	Vector3 vector = new Vector3(0, 0, 0);
 	
 	public AndroidGdxMenuActivity(){
 		
@@ -37,32 +39,33 @@ public class AndroidGdxMenuActivity implements ApplicationListener {
 						new VertexAttribute(Usage.Position, 3, "a_position"),
 						new VertexAttribute(Usage.ColorPacked, 4, "a_color"));
 
-				faces[i].setIndices(new short[] { 0, 1, 2, 3 });
+				faces[i].setIndices(new short[] { 0, 1, 2, 3});
 			}
 
 			faces[0].setVertices(new float[] {
-					0.5f, 0.5f, 1.5f, Color.toFloatBits(96, 0, 0, 255),
-					-0.5f, 0.5f, 1.5f, Color.toFloatBits(96, 0, 0, 255),
-					0.5f, -0.5f, 1.5f, Color.toFloatBits(96, 0, 0, 255),
+					0.5f, 0.5f, 1.5f, Color.toFloatBits(0, 0, 0, 255),
+					-0.5f, 0.5f, 1.5f, Color.toFloatBits(0, 0, 0, 255),
+					0.5f, -0.5f, 1.5f, Color.toFloatBits(0, 0, 0, 255),
 					});
 
-			faces[1].setVertices(new float[] {//
-					0.5f, 0.5f, -1.5f, Color.toFloatBits(255, 0, 0, 255),
-					-0.5f, 0.5f, -1.5f, Color.toFloatBits(255, 0, 0, 255),
-					0.5f, -0.5f, -1.5f,  Color.toFloatBits(255, 0, 0, 255),
+			faces[1].setVertices(new float[] {//zelen
+					0.5f, 0.5f, -1.5f, Color.toFloatBits(0, 180, 0, 255),
+					-0.5f, 0.5f, -1.5f, Color.toFloatBits(0, 180, 0, 255),
+					0.5f, -0.5f, -1.5f,  Color.toFloatBits(0, 180, 0, 255),
 					});
 			
-			faces[2].setVertices(new float[] {//
-					1.5f, 0.5f, 0.5f, Color.toFloatBits(0, 0, 120, 255),
-					1.5f, -0.5f, 0.5f, Color.toFloatBits(0, 0, 120, 255),
-					1.5f, 0.5f, -0.5f, Color.toFloatBits(0, 0, 120, 255),
+			faces[2].setVertices(new float[] {//rdeè
+					1.5f, 0.5f, 0.5f, Color.toFloatBits(180, 0, 0, 255),
+					1.5f, -0.5f, 0.5f, Color.toFloatBits(180, 0, 120, 255),
+					1.5f, 0.5f, -0.5f, Color.toFloatBits(180, 0, 120, 255),
 					});
 
-			faces[3].setVertices(new float[] {
-					-1.5f, 0.5f, 0.5f, Color.toFloatBits(0, 10, 96, 255),
-					-1.5f, -0.5f, 0.5f, Color.toFloatBits(0, 10, 96, 255),
-					-1.5f, 0.5f, -0.5f, Color.toFloatBits(0, 10, 96, 255),
+			faces[3].setVertices(new float[] {//rdeè
+					-1.5f, 0.5f, 0.5f, Color.toFloatBits(180, 0, 0, 255),
+					-1.5f, -0.5f, 0.5f, Color.toFloatBits(180, 0, 0, 255),
+					-1.5f, 0.5f, -0.5f, Color.toFloatBits(180, 0, 0, 255),
 					});
+		
 			
 			 FileHandle imageFileHandle = Gdx.files.internal("data/badlogic.jpg"); 
 		        texture = new Texture(imageFileHandle);
@@ -74,40 +77,47 @@ public class AndroidGdxMenuActivity implements ApplicationListener {
 
 	@Override
 	public void resume() { }
-
+	
 	protected int lastTouchX;
 	protected int lastTouchY;
-	float asd= -1.5f;
-	Date a, b;
-	boolean tuched = false;
+	float xx= -1.5f;
+	Date cas, cas2;
+	boolean touched = false;
 	@Override
 	public void render() {
 		
 		
 		if (Gdx.input.justTouched()) {
-			a = new Date();
-			tuched = true;
+			cas = new Date();
+			touched = true;
 			lastTouchX = Gdx.input.getX();
 		} else if (Gdx.input.isTouched()) {
 			camera.rotate(0.2f * (lastTouchX - Gdx.input.getX()), 0, 1.0f, 0);
 			faces[1].setVertices(new float[]{ 
-					0.5f, 0.5f, asd, Color.toFloatBits(255, 0, 0, 255),
-					-0.5f, 0.5f, asd, Color.toFloatBits(255, 0, 0, 255),
-					0.5f, -0.5f, asd,  Color.toFloatBits(255, 0, 0, 255),
+					0.5f, 0.5f, xx, Color.toFloatBits(0, 200, 0, 255),
+					-0.5f, 0.5f, xx, Color.toFloatBits(0, 200, 0, 255),
+					0.5f, -0.5f, xx,  Color.toFloatBits(0, 200, 0, 255),
 					});
 			int a = lastTouchX - Gdx.input.getX();
 			System.out.println(camera.direction.toString());
 			lastTouchX = Gdx.input.getX();
 			lastTouchY = Gdx.input.getY();
+			vector.set(camera.direction.x, camera.direction.y, camera.direction.z);
+			
+
 		}
 		if(!Gdx.input.isTouched()){
-			if(tuched){
-				b = new Date();
-				long time = b.getTime()-a.getTime();
+			if(touched){
+				cas2 = new Date();
+				long time = cas2.getTime()-cas.getTime();
 				if(time < 60){
-                    actionResolver.showMyList();
+					
+					if(vector.x < 0.08367786 && vector.x > -0.76719195)
+							actionResolver.showMyList();
+					
+					
 				}
-				tuched = false;
+				touched = false;
 			}
 		}
 		

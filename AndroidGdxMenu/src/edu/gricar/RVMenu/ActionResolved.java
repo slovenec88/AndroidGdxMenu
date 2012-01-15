@@ -1,4 +1,4 @@
-package edu.gricar.AndroidGdxMenu;
+package edu.gricar.RVMenu;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -67,6 +67,11 @@ public class ActionResolved implements ActionResolver {
 
 	public void showMyList() {
 		appContext.startActivity(new Intent(this.appContext, ActivityFirst.class));
+		
+	}
+	
+	public void closeapp() {
+		
 	}
 
 

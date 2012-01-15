@@ -1,4 +1,4 @@
-package edu.gricar.AndroidGdxMenu;
+package edu.gricar.RVMenu;
 
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import android.os.Bundle;

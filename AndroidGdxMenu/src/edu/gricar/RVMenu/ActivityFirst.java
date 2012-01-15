@@ -1,6 +1,5 @@
-package edu.gricar.AndroidGdxMenu;
+package edu.gricar.RVMenu;
 
-import edu.gricar.AndroidGdxMenu.R;
 import android.app.Activity;
 import android.os.Bundle;
 
